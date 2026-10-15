@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import ForeignKey
 
-class Items(models.Model):
+class Item(models.Model):
 
     name = models.CharField(max_length=200)
 
@@ -18,6 +18,7 @@ class Items(models.Model):
         ("BT", "Bluetooth"),
         ("24", "2.4 GHz"),
         ("WD", "Wired"),
+        ("TR", "Tri-Mode"),
     ]
     connectivity = models.CharField(max_length=3,choices=CONNECT_CATEGORIES, default="WD")
     
@@ -25,7 +26,7 @@ class Items(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class Keyboard(Items):
+class Keyboard(Item):
     LAYOUTS = [
         ("80%", "80%"),
         ("100%", "100%"),
@@ -53,3 +54,20 @@ class Keyboard(Items):
     ]
     technology = models.CharField(max_length=3, choices=TECH_CATEGORIES, default="MC")
 
+class Vendor(models.Model):
+    name = models.CharField(max_length=100)
+
+    url = models.CharField(max_length=100)
+
+
+
+class Listing(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.PROTECT)
+
+    vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
+
+    price = models.DecimalField(max_digits=7, decimal_places=2)
+
+    url = models.CharField(max_length=300)
+
+    stock = models.BooleanField(default=False)
