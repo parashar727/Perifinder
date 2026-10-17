@@ -5,12 +5,12 @@ class Item(models.Model):
 
     name = models.CharField(max_length=200)
 
-    ITEM_CATEGORIES = [
-        ("KB", "Keyboard"),
-        ("MS", "Mouse"),
-        ("CL", "Controller"),
-    ]
-    category = models.CharField(max_length=3, choices=ITEM_CATEGORIES, default="MS")
+    # ITEM_CATEGORIES = [
+    #     ("KB", "Keyboard"),
+    #     ("MS", "Mouse"),
+    #     ("CL", "Controller"),
+    # ]
+    # category = models.CharField(max_length=3, choices=ITEM_CATEGORIES, default="MS")
 
     description = models.CharField(max_length=1000)
 
