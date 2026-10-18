@@ -15,10 +15,9 @@ class Item(models.Model):
     description = models.CharField(max_length=1000)
 
     CONNECT_CATEGORIES = [
-        ("BT", "Bluetooth"),
-        ("24", "2.4 GHz"),
+        ("24", "Wired + 2.4 GHz"),
         ("WD", "Wired"),
-        ("TR", "Tri-Mode"),
+        ("TR", "Tri-Mode (Wired + 2.4 GHz + Bluetooth)"),
     ]
     connectivity = models.CharField(max_length=3,choices=CONNECT_CATEGORIES, default="WD")
     
@@ -44,7 +43,7 @@ class Keyboard(Item):
 
     switch_type = models.CharField(max_length=3, choices=SWITCH_CATEGORIES, default="LN")
 
-    switch_name = models.CharField(max_length=100)
+    switch_name = models.CharField(max_length=100, blank=True)
 
     plate_material = models.CharField(max_length=100, blank=True)
 
