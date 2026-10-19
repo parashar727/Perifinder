@@ -12,7 +12,7 @@ class Item(models.Model):
     # ]
     # category = models.CharField(max_length=3, choices=ITEM_CATEGORIES, default="MS")
 
-    description = models.CharField(max_length=1000)
+    description = models.TextField()
 
     CONNECT_CATEGORIES = [
         ("24", "Wired + 2.4 GHz"),
@@ -56,7 +56,7 @@ class Keyboard(Item):
 class Vendor(models.Model):
     name = models.CharField(max_length=100)
 
-    url = models.CharField(max_length=100)
+    url = models.URLField()
 
 
 
@@ -67,6 +67,6 @@ class Listing(models.Model):
 
     price = models.DecimalField(max_digits=7, decimal_places=2)
 
-    url = models.CharField(max_length=300)
+    url = models.URLField(max_length=400)
 
     stock = models.BooleanField(default=False)
