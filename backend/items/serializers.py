@@ -25,3 +25,14 @@ class VendorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vendor
         fields = '__all__'
+
+class KeyboardDetailSerializer(serializers.ModelSerializer):
+    listings = ListingSerializer(
+        source="listing_set",
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = Keyboard
+        fields = "__all__"
