@@ -7,3 +7,21 @@ class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = '__all__'
+
+class KeyboardSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Keyboard
+        fields = '__all__'
+
+class ListingSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Listing
+        fields = '__all__'
+
+class VendorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Vendor
+        fields = '__all__'
