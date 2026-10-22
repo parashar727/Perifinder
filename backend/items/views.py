@@ -11,7 +11,7 @@ class ItemViewSet(viewsets.ReadOnlyModelViewSet):
 
     filter_backends = [filters.SearchFilter]
 
-    search_fields = ['name']
+    search_fields = ['name', 'brand']
 
 class ListingViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ListingSerializer
@@ -23,7 +23,7 @@ class KeyboardViewSet(viewsets.ReadOnlyModelViewSet):
 
     filter_backends = [filters.SearchFilter]
     
-    search_fields = ['name']
+    search_fields = ['name', 'brand']
 
     def get_serializer_class(self):
         if self.action == "retrieve":
