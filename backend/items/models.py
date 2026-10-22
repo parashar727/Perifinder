@@ -3,6 +3,8 @@ from django.db.models import ForeignKey
 
 class Item(models.Model):
 
+    brand = models.CharField(max_length=100)
+
     name = models.CharField(max_length=200)
 
     # ITEM_CATEGORIES = [
