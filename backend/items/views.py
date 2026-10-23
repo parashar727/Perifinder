@@ -8,7 +8,7 @@ from rest_framework import viewsets, filters
 
 class ItemViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ItemSerializer
-    queryset = Item.objects.all()
+    queryset = Item.objects.all().order_by('name')
 
     filter_backends = [filters.SearchFilter]
 
@@ -19,7 +19,7 @@ class ListingViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Listing.objects.all()
 
 class KeyboardViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Keyboard.objects.all()
+    queryset = Keyboard.objects.all().order_by('name')
     serializer_class = KeyboardSerializer
 
     filter_backends = [filters.SearchFilter]

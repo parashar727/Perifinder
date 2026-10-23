@@ -72,3 +72,6 @@ class Listing(models.Model):
     url = models.URLField(max_length=400)
 
     stock = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['price', 'id']
