@@ -1,3 +1,4 @@
+# items/views.py
 from django.shortcuts import render
 from .models import Item, Keyboard, Vendor, Listing
 from .serializers import ItemSerializer, KeyboardSerializer, ListingSerializer, KeyboardDetailSerializer
@@ -26,6 +27,7 @@ class KeyboardViewSet(viewsets.ReadOnlyModelViewSet):
     search_fields = ['name', 'brand']
 
     def get_serializer_class(self):
+        # Return listing embedded version if detail view (do this for Item too)
         if self.action == "retrieve":
             return KeyboardDetailSerializer
 

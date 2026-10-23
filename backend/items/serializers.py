@@ -1,3 +1,4 @@
+# items/serializers.py
 from .models import Item, Keyboard, Vendor, Listing
 from rest_framework import serializers
 import json
@@ -26,6 +27,7 @@ class VendorSerializer(serializers.ModelSerializer):
         model = Vendor
         fields = '__all__'
 
+# Assume I have to make this for Item too
 class KeyboardDetailSerializer(serializers.ModelSerializer):
     listings = ListingSerializer(
         source="listing_set",
