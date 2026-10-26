@@ -16,6 +16,10 @@ class KeyboardSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ListingSerializer(serializers.ModelSerializer):
+    vendor_name = serializers.CharField(
+        source='vendor.name',
+        read_only=True
+    )
 
     class Meta:
         model = Listing
