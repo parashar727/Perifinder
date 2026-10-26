@@ -75,3 +75,7 @@ class Listing(models.Model):
 
     class Meta:
         ordering = ['price', 'id']
+
+        constraints = [
+            models.UniqueConstraint(fields=['vendor', 'url'], name='unique_vendor_listing_url'),
+        ]
